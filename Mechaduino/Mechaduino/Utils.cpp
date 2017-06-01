@@ -388,6 +388,13 @@ void serialCheck() {        //Monitors serial for commands.  Must be called in r
         SerialUSB.println(r);
         break;
 
+      case 'R':             //new rotation postion
+        SerialUSB.println("Enter rotations:");
+        while (SerialUSB.available() == 0)  {}
+        r = SerialUSB.parseFloat() * 360;
+        SerialUSB.println(r);
+        break;
+        
       case 'x':
         mode = 'x';           //position loop
         break;
